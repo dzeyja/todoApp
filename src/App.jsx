@@ -18,7 +18,7 @@ function App() {
       setTodos([...todos, newTask])
     }
   }
-
+  
   // Задачаны өшіретін функция
   const deleteTask = (id) => {
     setTodos([...todos.filter(task => task.id !== id)])
@@ -37,13 +37,21 @@ function App() {
       <h1>Todo App</h1>
       <TodoForm addTask={addTask} />
       <div>
-        {todos.map(task => (
-           <TodoItem 
-              toggleTask={toggleTask}
-              deleteTask={deleteTask} 
-              task={task} 
-            />
-        ))}
+        {
+          todos.length > 0 ? 
+          (
+            todos.map(task => (
+              <TodoItem 
+                  key={task.id}
+                  toggleTask={toggleTask}
+                  deleteTask={deleteTask} 
+                  task={task} 
+                />
+            ))
+          ) : (
+            <h3 style={{color: 'red'}}>Сенде тапсырмалар пока жоқ!</h3>
+          )
+        }
       </div>
     </div>
   )

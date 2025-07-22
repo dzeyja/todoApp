@@ -8,6 +8,18 @@ const TodoItem = (props) => {
         toggleTask
     } = props
 
+    
+  useEffect(() => {
+    const timer = setInterval(() => {
+      console.log('timerrr')
+    }, 1000)
+    
+    return () => {
+        clearInterval(timer)
+        console.log('Таймер тоқтылды')
+    }
+  }, [])
+
     return (
        <div className={`todo ${task.completed ? 'completed' : ''}`}>
             <input 
