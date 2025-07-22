@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import TodoForm from './components/TodoForm'
 import TodoItem from './components/TodoItem'
@@ -36,7 +36,7 @@ function App() {
     <div className='todos'>
       <h1>Todo App</h1>
       <TodoForm addTask={addTask} />
-      <div >
+      <div>
         {todos.map(task => (
            <TodoItem 
               toggleTask={toggleTask}
